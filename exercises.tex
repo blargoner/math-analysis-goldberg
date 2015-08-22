@@ -1,0 +1,48 @@
+% Notes and exercises from Methods of Real Analysis by Goldberg
+% By John Peloquin
+\documentclass[letterpaper,12pt]{article}
+\usepackage{amsmath,amssymb,amsthm,enumitem,fourier}
+
+% Theorems
+\theoremstyle{plain}
+\newtheorem*{thm}{Theorem}
+
+\theoremstyle{definition}
+\newtheorem*{exer}{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{rmk}{Remark}
+
+% Meta
+\title{Notes and exercises from\\\textit{Methods of Real Analysis}}
+\author{John Peloquin}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Introduction}
+This document contains notes and exercises from~\cite{goldberg}.
+
+\section*{Chapter~8}
+We provide an alternative proof of Taylor's theorem with the integral form of the remainder (Theorem~8.5C).
+\begin{thm}
+Let \(f\)~be a real-valued function on~\([a,a+h]\) such that \(f^{(n+1)}(x)\)~exists for every \(x\in[a,a+h]\) and \(f^{(n+1)}\)~is continuous on~\([a,a+h]\). Then
+\[f(x)=\sum_{k=0}^n\frac{f^{(k)}(a)}{k!}(x-a)^k+R_{n+1}(x)\qquad(\,x\in[a,a+h]\,)\]
+where
+\[R_{n+1}(x)=\frac{1}{n!}\int_a^x(x-t)^nf^{(n+1)}(t)\,dt\]
+\end{thm}
+\begin{proof}
+Fix \(x\in[a,a+h]\). Define
+\[F(t)=f(x)-\sum_{k=0}^n\frac{f^{(k)}(t)}{k!}(x-t)^k\]
+Thus \(F(t)\)~represents the error in the \(n\)-th Taylor polynomial for~\(f\) about~\(t\) at~\(x\). We need to prove \(F(a)=R_{n+1}(x)\). Direct computation reveals
+\[F'(t)=-\frac{f^{(n+1)}(t)}{n!}(x-t)^n\]
+By the fundamental theorem of calculus,
+\[R_{n+1}(x)=\int_a^x-F'(t)\,dt=F(a)-F(x)=F(a)\qedhere\]
+\end{proof}
+
+% References
+\begin{thebibliography}{0}
+\bibitem{goldberg} Goldberg, Richard~R. \textit{Methods of Real Analysis}, 2nd~ed. Wiley, 1976.
+\end{thebibliography}
+\end{document}
